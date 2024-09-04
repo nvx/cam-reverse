@@ -50,7 +50,7 @@ export const discoverDevices = (discovery_ips: string[]): EventEmitter => {
     });
   });
 
-  sock.bind();
+  sock.bind(32108);
 
   sock.on("close", () => timers.forEach((timer) => clearInterval(timer)));
   ee.on("close", () => sock.close());
